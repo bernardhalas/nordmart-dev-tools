@@ -8,6 +8,7 @@ create-namespace:
 install-flux-dry-run:
 	cd tools
 	kubectl apply --dry-run -f rbac-flux.yaml
+	helm init
 	helm repo add weaveworks https://weaveworks.github.io/flux
 	helm repo update
 	helm upgrade --dry-run --install flux-nordmart-dev --namespace $(NAMESPACE) weaveworks/flux -f flux-values.yaml
@@ -15,6 +16,7 @@ install-flux-dry-run:
 install-flux:
 	cd tools
 	kubectl apply -f rbac-flux.yaml
+	helm init
 	helm repo add weaveworks https://weaveworks.github.io/flux
 	helm repo update
 	helm upgrade --install flux-nordmart-dev --namespace $(NAMESPACE) weaveworks/flux -f flux-values.yaml

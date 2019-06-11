@@ -1,0 +1,54 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: flux
+  namespace: nordmart-dev-apps
+---
+# Role & Rolebinding for namespace
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1beta1
+metadata:
+  name: flux-binding
+  namespace: nordmart-dev-apps
+subjects:
+- kind: ServiceAccount
+  name: flux
+roleRef:
+  kind: Role
+  name: flux-role
+  apiGroup: rbac.authorization.k8s.io
+---
+kind: Role
+apiVersion: rbac.authorization.k8s.io/v1beta1
+metadata:
+  name: flux-role
+  namespace: nordmart-dev-apps
+rules:
+- apiGroups: ["*"]
+  resources: ["*"]
+  verbs: ["*"]
+---
+#Global
+kind: Role
+apiVersion: rbac.authorization.k8s.io/v1beta1
+metadata:
+  name: flux-system-role
+  namespace: kube-system
+rules:
+- apiGroups: ["*"]
+  resources: ["*"]
+  verbs: ["*"]
+---
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1beta1
+metadata:
+  name: flux-system-binding-nordmart-dev
+  namespace: kube-system
+subjects:
+- kind: ServiceAccount
+  name: flux
+  namespace: nordmart-dev-apps
+roleRef:
+  kind: Role
+  name: flux-system-role
+  apiGroup: rbac.authorization.k8s.io

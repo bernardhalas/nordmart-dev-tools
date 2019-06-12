@@ -4,6 +4,7 @@ NAMESPACE ?= nordmart-dev-apps
 
 create-namespace:
 	kubectl create namespace $(NAMESPACE) || true
+	kubectl label namespace $(NAMESPACE) istio-injection=enabled
 
 install-flux-dry-run:
 	cd tools

@@ -1,5 +1,5 @@
 #!/usr/bin/env groovy
-@Library('github.com/stakater/stakater-pipeline-library@revamp') _
+@Library('github.com/stakater/stakater-pipeline-library@v2.15.0') _
 
 def utils = new io.fabric8.Utils()
 def flow = new io.stakater.StakaterCommands()

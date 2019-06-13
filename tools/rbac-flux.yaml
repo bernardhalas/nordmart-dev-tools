@@ -61,7 +61,7 @@ metadata:
   namespace: monitoring
 rules:
 - apiGroups: ["*"]
-  resources: ["configmap"]
+  resources: ["*"]
   verbs: ["*"]
 ---
 kind: RoleBinding

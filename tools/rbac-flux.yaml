@@ -52,3 +52,29 @@ roleRef:
   kind: Role
   name: flux-system-role
   apiGroup: rbac.authorization.k8s.io
+---
+#Monitoring
+kind: Role
+apiVersion: rbac.authorization.k8s.io/v1beta1
+metadata:
+  name: flux-monitoring-role
+  namespace: monitoring
+rules:
+- apiGroups: ["*"]
+  resources: ["configmap"]
+  verbs: ["*"]
+---
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1beta1
+metadata:
+  name: flux-binding-nordmart-dev
+  namespace: monitoring
+subjects:
+- kind: ServiceAccount
+  name: flux
+  namespace: nordmart-dev-apps
+roleRef:
+  kind: Role
+  name: flux-monitoring-role
+  apiGroup: rbac.authorization.k8s.io
+---

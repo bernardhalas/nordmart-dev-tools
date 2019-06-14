@@ -17,3 +17,5 @@ registry:
   excludeImage: "None"
 additionalArgs:
   - --k8s-namespace-whitelist=nordmart-dev-apps
+annotations:
+  sidecar.istio.io/inject: "false"

@@ -1,0 +1,39 @@
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: nordmart-dev-flux
+  namespace: nordmart-dev-apps
+spec:
+  releaseName: nordmart-dev-flux
+  chart:
+    repository: https://charts.fluxcd.io
+    name: flux
+    version: 0.15.0
+  values:
+    image:
+      repository: fluxcd/flux
+      tag: 1.15.0
+
+    helmOperator:
+      create: false
+      createCRD: false
+
+    rbac:
+      create: false
+    
+    serviceAccount:
+      create: false
+      name: flux
+    
+    git:
+      url: ssh://git@github.com/stakater-lab/nordmart-dev-apps.git
+      pollInterval: "30s"
+      path: "releases"
+    
+    registry:
+      pollInterval: "1m"
+      excludeImage: "None"
+    
+    additionalArgs:
+    - --k8s-allow-namespace=nordmart-dev-apps
+

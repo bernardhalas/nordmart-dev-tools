@@ -19,7 +19,7 @@ install-flux:
 	helm init --client-only
 	helm repo add fluxcd https://fluxcd.github.io/flux
 	helm repo update
-	kubectl apply -f rbac-flux.yaml $(NAMESPACE)
+	kubectl apply -f rbac-flux.yaml -n $(NAMESPACE)
 	kubectl apply -f flux.yaml -n $(NAMESPACE)
 
 delete-flux:

@@ -11,7 +11,6 @@ install-flux-dry-run:
 	helm init --client-only
 	helm repo add fluxcd https://fluxcd.github.io/flux
 	helm repo update
-	kubectl apply --dry-run -f rbac-flux.yaml
 	kubectl apply --dry-run -f flux.yaml -n $(NAMESPACE)
 
 install-flux:
@@ -19,7 +18,6 @@ install-flux:
 	helm init --client-only
 	helm repo add fluxcd https://fluxcd.github.io/flux
 	helm repo update
-	kubectl apply -f rbac-flux.yaml
 	kubectl apply -f flux.yaml -n $(NAMESPACE)
 
 delete-flux:

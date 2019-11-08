@@ -24,6 +24,9 @@ spec:
     serviceAccount:
       create: false
       name: flux
+
+    clusterRole:
+      create: false
     
     git:
       url: ssh://git@github.com/stakater-lab/nordmart-dev-apps.git

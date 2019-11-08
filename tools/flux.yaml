@@ -38,6 +38,6 @@ spec:
       pollInterval: "1m"
       excludeImage: "None"
     
-    additionalArgs:
-    - --k8s-allow-namespace=nordmart-dev-apps
+    # additionalArgs:
+    # - --k8s-allow-namespace=nordmart-dev-apps
 

@@ -4,7 +4,7 @@ metadata:
   name: flux
   namespace: nordmart-dev-apps
 ---
-# Role & Rolebinding for namespace
+# Role & Role binding for namespace
 kind: RoleBinding
 apiVersion: rbac.authorization.k8s.io/v1beta1
 metadata:

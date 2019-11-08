@@ -1,5 +1,5 @@
 #!/usr/bin/env groovy
-@Library('github.com/stakater/stakater-pipeline-library@update-toolsNode') _
+@Library('github.com/stakater/stakater-pipeline-library@v2.16.12') _
 
 executeMakeTargets {
     target= "install"

@@ -39,5 +39,5 @@ spec:
       excludeImage: "None"
     
     additionalArgs:
-    - --k8s-allow-namespace=nordmart-dev-apps
+    - --k8s-allow-namespace=nordmart-dev-apps,monitoring
 

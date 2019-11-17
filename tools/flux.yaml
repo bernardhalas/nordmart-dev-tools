@@ -40,4 +40,6 @@ spec:
     
     additionalArgs:
     - --k8s-allow-namespace=nordmart-dev-apps,monitoring
+    annotations:
+      sidecar.istio.io/inject: "false"
 

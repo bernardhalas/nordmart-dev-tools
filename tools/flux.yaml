@@ -31,7 +31,7 @@ spec:
     git:
       url: ssh://git@github.com/stakater-lab/nordmart-dev-apps.git
       branch: azure-ocp-workshop-stakater
-      pollInterval: "30s"
+      pollInterval: "10s"
       path: "releases"
     
     registry:

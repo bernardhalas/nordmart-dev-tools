@@ -30,7 +30,7 @@ spec:
     
     git:
       url: ssh://git@github.com/stakater-lab/nordmart-dev-apps.git
-      branch: aws-eks-stakter 
+      branch: aws-eks-stakater 
       pollInterval: "10s"
       path: "releases"
     

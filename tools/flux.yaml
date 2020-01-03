@@ -30,7 +30,7 @@ spec:
     
     git:
       url: ssh://git@github.com/stakater-lab/nordmart-dev-apps.git
-      branch: aws-eks-stakater 
+      branch: azure-aks-stakater 
       pollInterval: "10s"
       path: "releases"
     
@@ -41,4 +41,4 @@ spec:
     additionalArgs:
     - --k8s-allow-namespace=nordmart-dev-apps,monitoring
     annotations:
-      sidecar.istio.io/inject: "true"
+      sidecar.istio.io/inject: "false"

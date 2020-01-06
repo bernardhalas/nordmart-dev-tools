@@ -5,3 +5,4 @@ metadata:
   namespace: nordmart-dev-apps
   labels:
     name: nordmart-dev-apps
+    istio-injection: enabled

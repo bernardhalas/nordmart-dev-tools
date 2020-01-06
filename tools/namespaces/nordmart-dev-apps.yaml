@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: nordmart-dev-apps
+  namespace: nordmart-dev-apps
+  labels:
+    name: nordmart-dev-apps
+    istio-injection: enabled

@@ -1,0 +1,41 @@
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: nordmart-dev-external-dns
+  namespace: nordmart-dev-tools
+spec:
+  releaseName: nordmart-dev-external-dns
+  chart:
+    repository: https://kubernetes-charts.storage.googleapis.com
+    name: external-dns
+    version: 2.10.2
+  values:
+    sources:
+      - istio-gateway
+    istioIngressGateways:
+      - istio-system/istio-ingressgateway
+    domainFilters:
+      - DOMAIN
+    txtOwnerId: stakater
+    registry: txt
+    provider: DNS_PROVIDER
+    policy: sync
+    rbac:
+      create: true
+      apiVersion: v1beta1
+    tolerations:
+      - key: "dedicated"
+        operator: "Equal"
+        value: "app"
+        effect: "NoSchedule"
+    extraEnv:
+      - name: AWS_ACCESS_KEY_ID
+        valueFrom:
+          secretKeyRef:
+            name: external-dns-secrets
+            key: aws_access_key_id
+      - name: AWS_SECRET_ACCESS_KEY
+        valueFrom:
+          secretKeyRef:
+            name: external-dns-secrets
+            key: aws_secret_access_key

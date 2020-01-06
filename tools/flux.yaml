@@ -2,7 +2,7 @@ apiVersion: helm.fluxcd.io/v1
 kind: HelmRelease
 metadata:
   name: nordmart-dev-flux
-  namespace: nordmart-dev-apps
+  namespace: nordmart-dev-tools
 spec:
   releaseName: nordmart-dev-flux
   chart:
@@ -30,7 +30,7 @@ spec:
     
     git:
       url: ssh://git@github.com/stakater-lab/nordmart-dev-apps.git
-      branch: aws-eks-stakater 
+      branch: master
       pollInterval: "10s"
       path: "releases"
     
@@ -39,6 +39,6 @@ spec:
       excludeImage: "None"
     
     additionalArgs:
-    - --k8s-allow-namespace=nordmart-dev-apps,monitoring
+    - --k8s-allow-namespace=nordmart-dev-tools,nordmart-dev-apps,istio-system
     annotations:
       sidecar.istio.io/inject: "true"

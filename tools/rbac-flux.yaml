@@ -78,3 +78,50 @@ roleRef:
   name: flux-monitoring-role
   apiGroup: rbac.authorization.k8s.io
 ---
+kind: Role
+apiVersion: rbac.authorization.k8s.io/v1beta1
+metadata:
+  name: flux-nordmart-role
+  namespace: istio-system
+rules:
+  - apiGroups: ["*"]
+    resources: ["*"]
+    verbs: ["*"]
+---
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1beta1
+metadata:
+  name: flux-nordmart-binding
+  namespace: istio-system
+subjects:
+  - kind: ServiceAccount
+    name: flux
+    namespace: nordmart-dev-tools
+roleRef:
+  kind: Role
+  name: flux-nordmart-role
+  apiGroup: rbac.authorization.k8s.io
+---
+kind: Role
+apiVersion: rbac.authorization.k8s.io/v1beta1
+metadata:
+  name: flux-nordmart-role
+  namespace: istio-system
+rules:
+  - apiGroups: ["*"]
+    resources: ["*"]
+    verbs: ["*"]
+---
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1beta1
+metadata:
+  name: flux-nordmart-binding
+  namespace: istio-system
+subjects:
+  - kind: ServiceAccount
+    name: flux
+    namespace: nordmart-dev-tools
+roleRef:
+  kind: Role
+  name: flux-nordmart-role
+  apiGroup: rbac.authorization.k8s.io

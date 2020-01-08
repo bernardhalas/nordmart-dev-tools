@@ -31,11 +31,11 @@ Run `make delete` or `make delete-istio` if you used istio to remove nordmart-de
 
 ## Configuration Parameters
 
-| Parameter | Details |
+| Parameter | Details | Required |
 |---|---|
-| DOMAIN | It will be used to create ingress for the application. It need to be changed in `releases/web-helm-release.yaml`, `releases/docker-cfg-secret.yaml` and `releases/gateway-helm-release.yaml` manifest |
-| DNS_PROVIDER | Cloud DNS Provider, example `aws` |
-| AWS_ACCESS_KEY_ID | AWS Access Key Id having access to create/delete/update Route53 HostedZone entries|
-| AWS_SECRET_ACCESS_KEY | AWS Secret Access Key having access to create/delete/update Route53 HostedZone entries|
-| STAKATER_NORDMART_DEV_APPS_SSH_GIT_URL | SSH URL for your nordmart-dev-apps Github repo. `nil`<br>(e.g `git@github.com/stakater-lab/nordmart-dev-apps.git`. Notice `:` is replaced with `/` in the URL ) |
-| STAKATER_NORDMART_DEV_APPS_PLATFORM_BRANCH | Branch to use for `STAKATER_NORDMART_DEV_APPS_PLATFORM_BRANCH` |
+| DOMAIN | It will be used to create ingress for the application. It need to be changed in `releases/web-helm-release.yaml`, `releases/docker-cfg-secret.yaml` and `releases/gateway-helm-release.yaml` manifest |  Mandatory |
+| STAKATER_NORDMART_DEV_APPS_SSH_GIT_URL | SSH URL for your nordmart-dev-apps Github repo. `nil`<br>(e.g `git@github.com/stakater-lab/nordmart-dev-apps.git`. Notice `:` is replaced with `/` in the URL ) | Mandatory|
+| STAKATER_NORDMART_DEV_APPS_PLATFORM_BRANCH | Branch to use for `STAKATER_NORDMART_DEV_APPS_PLATFORM_BRANCH` | Mandatory|
+| DNS_PROVIDER | Cloud DNS Provider, example `aws` | Required if using istio|
+| AWS_ACCESS_KEY_ID | AWS Access Key Id having access to create/delete/update Route53 HostedZone entries| Required if using istio|
+| AWS_SECRET_ACCESS_KEY | AWS Secret Access Key having access to create/delete/update Route53 HostedZone entries| Required if using istio|

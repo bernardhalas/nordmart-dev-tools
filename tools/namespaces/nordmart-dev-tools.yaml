@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: nordmart-dev-tools
+  namespace: nordmart-dev-tools
+  labels:
+    name: nordmart-dev-tools

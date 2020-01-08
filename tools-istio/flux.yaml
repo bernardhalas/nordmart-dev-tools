@@ -32,13 +32,13 @@ spec:
       url: ssh://git@github.com/stakater-lab/nordmart-dev-apps.git
       branch: master
       pollInterval: "10s"
-      path: "releases"
+      path: "releases-istio"
     
     registry:
       pollInterval: "1m"
       excludeImage: "None"
     
     additionalArgs:
-    - --k8s-allow-namespace=monitoring,nordmart-dev-tools,nordmart-dev-apps
+    - --k8s-allow-namespace=monitoring,nordmart-dev-tools,nordmart-dev-apps,istio-system
     annotations:
       sidecar.istio.io/inject: "true"

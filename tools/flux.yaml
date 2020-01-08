@@ -29,8 +29,8 @@ spec:
       create: false
     
     git:
-      url: ssh://git@github.com/stakater-lab/nordmart-dev-apps.git
-      branch: master
+      url: "ssh://STAKATER_NORDMART_DEV_APPS_SSH_GIT_URL"
+      branch: "STAKATER_NORDMART_DEV_APPS_PLATFORM_BRANCH"
       pollInterval: "10s"
       path: "releases"
     

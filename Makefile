@@ -9,8 +9,7 @@ create-namespace:
 delete-namespace:
 	kubectl delete tools/namespaces -f .
 
-install-local:
-	kubectl apply tools/namespaces -f .
+install-local: create-namespace
 
 install-flux-dry-run:
 	cd tools
@@ -48,7 +47,7 @@ delete-namespace-istio:
 	kubectl delete tools-istio/namespaces -f .
 
 install-local-istio:
-	kubectl apply tools-istio/namespaces -f .
+	create-namespace-istio
 	kubectl apply tools-istio/secrets -f .
 	kubectl apply -f tools-istio/external-dns.yaml
 

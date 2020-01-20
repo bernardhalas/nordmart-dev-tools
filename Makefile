@@ -9,7 +9,7 @@ create-namespace:
 delete-namespace:
 	kubectl delete tools/namespaces -f .
 
-install-local: create-namespace
+install-local: create-namespace install-strimzi
 
 install-flux-dry-run:
 	cd tools
@@ -32,11 +32,11 @@ delete-flux:
 	kubectl delete -f flux.yaml
 	kubectl delete -f rbac-flux.yaml
 
-install: create-namespace install-flux
+install: create-namespace install-flux install-strimzi
 
 install-dry-run: install-flux-dry-run
 
-delete: delete-flux delete-namespace
+delete: delete-strimzi delete-flux delete-namespace
 
 install-strimzi:
 	kubectl apply -f tools/strimzi.yaml
@@ -89,10 +89,10 @@ install-strimzi-istio:
 delete-strimzi-istio:
 	kubectl delete -f tools-istio/strimzi.yaml
 
-install-istio: create-namespace-istio install-flux-istio install-external-dns
+install-istio: create-namespace-istio install-flux-istio install-strimzi-istio install-external-dns
 
 install-dry-run-istio: install-flux-dry-run-istio
 
-delete-istio: delete-flux-istio delete-external-dns delete-namespace-istio
+delete-istio: delete-flux-istio delete-external-dns delete-strimzi-istio delete-namespace-istio
 
 .PHONY: install install-dry-run

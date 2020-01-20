@@ -1,0 +1,18 @@
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: nordmart-dev-strimzi
+  namespace: nordmart-dev-tools
+spec:
+  releaseName: nordmart-dev-strimzi
+  chart:
+    repository: https://strimzi.io/charts/
+    name: strimzi
+    version: 0.16.0-rc1
+  values:
+    image:
+      repository: strimzi/strimzi-kafka-operator
+      tag: 0.16.0-rc1
+    
+    additionalArgs:
+    - --k8s-allow-namespace=monitoring,nordmart-dev-tools,nordmart-dev-apps

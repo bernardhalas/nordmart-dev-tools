@@ -4,7 +4,7 @@ SHELL := /bin/bash
 ### Without istio
 
 create-namespace:
-	kubectl apply tools/namespaces -f .
+	kubectl apply -f tools/namespaces
 
 delete-namespace:
 	kubectl delete tools/namespaces -f .
@@ -37,6 +37,12 @@ install: create-namespace install-flux
 install-dry-run: install-flux-dry-run
 
 delete: delete-flux delete-namespace
+
+install-strimzi:
+	kubectl apply -f tools/strimzi.yaml
+
+delete-strimzi:
+	kubectl delete -f tools/strimzi.yaml
 
 ### With Istio
 
@@ -76,6 +82,12 @@ install-external-dns:
 delete-external-dns:
 	kubectl delete -f tools-istio/secrets/secret-external-dns.yaml
 	kubectl delete -f tools-istio/external-dns.yaml
+
+install-strimzi-istio:
+	kubectl apply -f tools-istio/strimzi.yaml
+
+delete-strimzi-istio:
+	kubectl delete -f tools-istio/strimzi.yaml
 
 install-istio: create-namespace-istio install-flux-istio install-external-dns
 

@@ -39,6 +39,8 @@ install-dry-run: install-flux-dry-run
 delete: delete-strimzi delete-flux delete-namespace
 
 install-strimzi:
+	helm repo add strimzi https://strimzi.io/charts/
+	helm repo update
 	kubectl apply -f tools/strimzi.yaml
 
 delete-strimzi:
@@ -84,6 +86,8 @@ delete-external-dns:
 	kubectl delete -f tools-istio/external-dns.yaml
 
 install-strimzi-istio:
+	helm repo add strimzi https://strimzi.io/charts/
+	helm repo update
 	kubectl apply -f tools-istio/strimzi.yaml
 
 delete-strimzi-istio:

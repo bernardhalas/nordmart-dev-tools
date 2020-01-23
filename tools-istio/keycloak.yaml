@@ -107,7 +107,7 @@ spec:
       nodeSelector: {}
       password: ""
       persistence:
-        dbHost: nordmart-dev-keycloak-postgresql.security
+        dbHost: nordmart-dev-keycloak-postgresql.nordmart-dev-tools
         dbName: keycloak-db
         dbPassword: ""
         dbPort: 5432
@@ -155,7 +155,7 @@ spec:
         fsGroup: 1000
       service:
         annotations:
-          config.xposer.stakater.com/Domain: DOMAIN
+          config.xposer.stakater.com/Domain: nordmart-eks.stakater.com
           config.xposer.stakater.com/IngressNameTemplate: '{{.Service}}'
           config.xposer.stakater.com/IngressURLTemplate: keycloak-{{.Namespace}}.{{.Domain}}
           config.xposer.stakater.com/TLS: "true"

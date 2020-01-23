@@ -2,7 +2,7 @@ apiVersion: helm.fluxcd.io/v1
 kind: HelmRelease
 metadata:
   name: nordmart-dev-keycloak-postgresql
-  namespace: security
+  namespace: nordmart-dev-tools
 spec:
   releaseName: nordmart-dev-keycloak-postgresql
   chart:

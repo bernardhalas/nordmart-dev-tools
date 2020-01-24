@@ -1,5 +1,5 @@
 {
-  "realm": "stakater",
+  "realm": "nordmart",
   "enabled": true,
   "loginTheme": "keycloak",
   "sslRequired": "external",

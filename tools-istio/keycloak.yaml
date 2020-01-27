@@ -91,7 +91,7 @@ spec:
       image:
         pullPolicy: IfNotPresent
         repository: jboss/keycloak
-        tag: 6.0.1
+        tag: 8.0.1
       ingress:
         annotations: {}
         enabled: false
@@ -155,9 +155,9 @@ spec:
         fsGroup: 1000
       service:
         annotations:
-          config.xposer.stakater.com/Domain: nordmart-eks.stakater.com
+          config.xposer.stakater.com/Domain: DOMAIN
           config.xposer.stakater.com/IngressNameTemplate: '{{.Service}}'
-          config.xposer.stakater.com/IngressURLTemplate: keycloak-{{.Namespace}}.{{.Domain}}
+          config.xposer.stakater.com/IngressURLTemplate: keycloak-dev.{{.Domain}}
           config.xposer.stakater.com/TLS: "true"
           config.xposer.stakater.com/TLSSecretNameTemplate: tls-cert
           xposer.stakater.com/annotations: |-

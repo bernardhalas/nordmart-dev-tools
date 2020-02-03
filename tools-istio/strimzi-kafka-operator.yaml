@@ -2,7 +2,7 @@ apiVersion: helm.fluxcd.io/v1
 kind: HelmRelease
 metadata:
   name: nordmart-dev-strimzi-kafka-operator
-  namespace: nordmart-dev-apps
+  namespace: nordmart-dev-tools
 spec:
   releaseName: nordmart-dev-strimzi-kafka-operator
   chart:
@@ -10,7 +10,6 @@ spec:
     name: strimzi-kafka-operator
     version: 0.16.0
   values:
-    deployment:
-      image:
-        repository: strimzi/strimzi-kafka-operator
-        tag: 0.16.0
+    watchNamespaces:
+      - nordmart-dev-apps
+    watchAnyNamespace: false

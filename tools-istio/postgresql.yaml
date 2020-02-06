@@ -60,7 +60,7 @@ spec:
       enabled: true
       mountPath: /bitnami/postgresql
       size: 1Gi
-      storageClass: stakater-storageclass
+      storageClass: STORAGE_CLASS_NAME
       subPath: ""
     updateStrategy:
       type: RollingUpdate

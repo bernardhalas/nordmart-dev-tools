@@ -39,3 +39,4 @@ Run `make delete` or `make delete-istio` if you used istio to remove nordmart-de
 | DNS_PROVIDER | Cloud DNS Provider, example `aws` | Required if using istio|
 | AWS_ACCESS_KEY_ID | AWS Access Key Id having access to create/delete/update Route53 HostedZone entries| Required if using istio|
 | AWS_SECRET_ACCESS_KEY | AWS Secret Access Key having access to create/delete/update Route53 HostedZone entries| Required if using istio|
+| STORAGE_CLASS_NAME | Required to create PVC | Required|

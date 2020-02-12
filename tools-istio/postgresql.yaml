@@ -2,7 +2,7 @@ apiVersion: helm.fluxcd.io/v1
 kind: HelmRelease
 metadata:
   name: nordmart-dev-keycloak-postgresql
-  namespace: nordmart-dev-tools
+  namespace: nordmart-demo-tools
 spec:
   releaseName: nordmart-dev-keycloak-postgresql
   chart:
@@ -60,7 +60,7 @@ spec:
       enabled: true
       mountPath: /bitnami/postgresql
       size: 1Gi
-      storageClass: stakater-storageclass
+      storageClass: ibmc-block-gold
       subPath: ""
     updateStrategy:
       type: RollingUpdate

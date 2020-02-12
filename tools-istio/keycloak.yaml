@@ -2,7 +2,7 @@ apiVersion: helm.fluxcd.io/v1
 kind: HelmRelease
 metadata:
   name: nordmart-dev-keycloak
-  namespace: nordmart-dev-tools
+  namespace: nordmart-demo-tools
 spec:
   releaseName: nordmart-dev-keycloak
   chart:
@@ -95,8 +95,8 @@ spec:
       ingress:
         annotations: {}
         enabled: false
-        hosts:
-        - keycloak.example.com
+        # hosts:
+        # - keycloak.example.com
         labels: {}
         path: /
         tls: []
@@ -107,7 +107,7 @@ spec:
       nodeSelector: {}
       password: ""
       persistence:
-        dbHost: nordmart-dev-keycloak-postgresql.nordmart-dev-tools
+        dbHost: nordmart-dev-keycloak-postgresql.nordmart-demo-tools
         dbName: keycloak-db
         dbPassword: ""
         dbPort: 5432
@@ -154,20 +154,20 @@ spec:
       securityContext:
         fsGroup: 1000
       service:
-        annotations:
-          config.xposer.stakater.com/Domain: DOMAIN
-          config.xposer.stakater.com/IngressNameTemplate: '{{.Service}}'
-          config.xposer.stakater.com/IngressURLTemplate: keycloak-dev.{{.Domain}}
-          config.xposer.stakater.com/TLS: "true"
-          config.xposer.stakater.com/TLSSecretNameTemplate: tls-cert
-          xposer.stakater.com/annotations: |-
-            kubernetes.io/ingress.class: internal-ingress
-            ingress.kubernetes.io/force-ssl-redirect: false
-            nginx.ingress.kubernetes.io/cors-allow-origin: "*"
-            forecastle.stakater.com/expose: true
-            forecastle.stakater.com/icon: https://www.keycloak.org/resources/images/keycloak_logo_480x108.png
-            forecastle.stakater.com/appName: keycloak
-            exposeIngressUrl: globally
+        # annotations:
+        #   config.xposer.stakater.com/Domain: nordmart-eks.stakater.com
+        #   config.xposer.stakater.com/IngressNameTemplate: '{{.Service}}'
+        #   config.xposer.stakater.com/IngressURLTemplate: keycloak-dev.{{.Domain}}
+        #   config.xposer.stakater.com/TLS: "true"
+        #   config.xposer.stakater.com/TLSSecretNameTemplate: tls-cert
+        #   xposer.stakater.com/annotations: |-
+        #     kubernetes.io/ingress.class: internal-ingress
+        #     ingress.kubernetes.io/force-ssl-redirect: false
+        #     nginx.ingress.kubernetes.io/cors-allow-origin: "*"
+        #     forecastle.stakater.com/expose: true
+        #     forecastle.stakater.com/icon: https://www.keycloak.org/resources/images/keycloak_logo_480x108.png
+        #     forecastle.stakater.com/appName: keycloak
+        #     exposeIngressUrl: globally
         jgroupsPort: 7600
         labels:
           expose: "true"
